@@ -1,0 +1,851 @@
+/* ====================================== header========================================= */
+body,
+ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+li a {
+    padding: 5px 10px;
+    margin: 0;
+    border: 0px solid #f00;
+    background: #903;
+    text-decoration: none;
+    color: #FFF;
+    font-family: sans-serif;
+    /* cantos arredondados */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+a:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+/* #logo {
+    font-size: 2rem;
+    font-weight: bold;
+} */
+
+#header {
+    box-sizing: border-box;
+    height: 70px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #e7e7e7;
+}
+
+#menu {
+    display: flex;
+    list-style: none;
+    gap: .5rem;
+}
+
+#menu a {
+    display: block;
+    padding: .5rem;
+}
+
+#btn-mobile {
+    
+
+    display: none;
+}
+
+#txtmob{
+    visibility: hidden;
+
+    
+}
+
+
+
+/* ======================================  RESPONSIVE  ========================================= */
+@media (min-width: 600px) {
+    #background {
+        background-image: url("/Imagens/fotoRua.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+}
+
+@media (max-width: 600px) {
+    #menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 70px;
+        right: 0px;
+        text-align: center;
+        background: #e7e7e7;
+        transition: .6s;
+        z-index: 1000;
+        height: 0px;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+
+    #background {
+        background-image: url("/Imagens/fotoRuaMob.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+    }
+
+    #nav.active #menu {
+        height: calc(100vh - 70px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+
+    #menu a {
+        padding: 1.5rem 0;
+        margin: 0.5rem;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+    }
+
+    #btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        
+
+        border: none;
+        background: none;
+        cursor: pointer;
+
+    }
+
+    #hamburguer {
+        color: black;
+        display: block;
+        border-top: 2px solid;
+        width: 20px;
+        margin-left: 10px;
+    }
+
+    #hamburguer::before,
+    #hamburguer::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+
+    #nav.active #hamburguer {
+        border-top-color: transparent;
+    }
+
+    #nav.active #hamburguer::before {
+        transform: rotate(135deg);
+    }
+
+    #nav.active #hamburguer::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+
+    .sliderYamaha{
+        visibility: hidden;        
+             
+    }
+    .sliderHonda{
+        visibility: hidden; 
+         
+    }
+    .sliderSuzuki{
+        visibility: hidden;   
+         
+    }
+    .sliderBmw{
+        visibility: hidden;       
+    }
+    .sliderDucati{
+        visibility: hidden; 
+        
+    }
+    .sliderTriumph{
+        visibility: hidden;       
+    }
+
+    #txtmob{
+        visibility: visible;        
+        font-size: 26px;
+        font-weight: 1000;   
+        position: center;   
+            
+        
+       
+
+        
+        
+    }
+  
+
+}
+
+#logoNav {
+    width: 200px;
+}
+
+
+
+
+/* ======================================CONTEUDO MOTOS========================================= */
+
+/* YAMAHA*/
+#yamaha { 
+    display:flex;
+    align-items: center;
+    justify-content:space-around;
+    /* height: 100vh;  */
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+    
+}
+
+#logyamaha {
+    height: 150px;
+    width: 150px;
+    margin: 17px;   
+    
+}
+
+.sliderYamaha{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesYamaha{
+    display: flex;
+    width: 400%;
+    height: 100%;
+}
+
+.slideYamaha{
+    width: 25%;
+    transition: 0.5s;
+}
+.slideYamaha img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barYamaha{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:30%;
+    transform: translate(-50);
+}
+
+#slide1Yamaha, #slide2Yamaha ,#slide3Yamaha ,#slide4Yamaha {
+    display: none;
+}
+
+.barYamaha{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barYamaha:hover{
+    background: #FFF;
+}
+
+#slide1Yamaha:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Yamaha:checked ~ .first{
+    margin-left: -25%;
+}
+
+#slide3Yamaha:checked ~ .first{
+    margin-left: -50%;
+}
+
+#slide4Yamaha:checked ~ .first{
+    margin-left: -75%;
+}
+
+/* HONDA*/
+#honda {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;    
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+#loghonda {
+    height: 150px;
+    width: 150px;
+    margin: 17px;
+}
+
+.sliderHonda{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesHonda{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slideHonda{
+    width: 20%;
+    transition: 0.5s;
+}
+.slideHonda img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barHonda{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:25%;
+    transform: translate(-50);
+}
+
+#slide1Honda, #slide2Honda ,#slide3Honda ,#slide4Honda, #slide5Honda {
+    display: none;
+}
+
+.barHonda{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barHonda:hover{
+    background: #FFF;
+}
+
+#slide1Honda:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Honda:checked ~ .first{
+    margin-left: -20%;
+}
+
+#slide3Honda:checked ~ .first{
+    margin-left: -40%;
+}
+
+#slide4Honda:checked ~ .first{
+    margin-left: -60%;
+}
+#slide5Honda:checked ~ .first{
+    margin-left: -80%;
+}
+
+
+
+/* Suzuki*/
+
+#suzuki {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;    
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+#logSuzuki{
+    height: 170px;
+    width: 170px;
+    margin: 17px;
+}
+
+.sliderSuzuki{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesSuzuki{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slideSuzuki{
+    width: 20%;
+    transition: 0.5s;
+}
+.slideSuzuki img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barSuzuki{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:25%;
+    transform: translate(-50);
+}
+
+#slide1Suzuki , #slide2Suzuki ,#slide3Suzuki  ,#slide4Suzuki , #slide5Suzuki  {
+    display: none;
+}
+
+.barSuzuki{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barSuzuki:hover{
+    background: #FFF;
+}
+
+#slide1Suzuki:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Suzuki:checked ~ .first{
+    margin-left: -20%;
+}
+
+#slide3Suzuki:checked ~ .first{
+    margin-left: -40%;
+}
+
+#slide4Suzuki:checked ~ .first{
+    margin-left: -60%;
+}
+#slide5Suzuki:checked ~ .first{
+    margin-left: -80%;
+}
+
+
+
+/* DUCATI*/
+
+#ducati {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;    
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+#logDucati {
+    height: 180px;
+    width: 180px;
+    margin: 17px;
+    
+}
+
+.sliderDucati{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesDucati{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slideDucati{
+    width: 20%;
+    transition: 0.5s;
+}
+.slideDucati img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barDucati{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:25%;
+    transform: translate(-50);
+}
+
+#slide1Ducati, #slide2Ducati ,#slide3Ducati ,#slide4Ducati, #slide5Ducati {
+    display: none;
+}
+
+.barDucati{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barDucati:hover{
+    background: #FFF;
+}
+
+#slide1Ducati:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Ducati:checked ~ .first{
+    margin-left: -20%;
+}
+
+#slide3Ducati:checked ~ .first{
+    margin-left: -40%;
+}
+
+#slide4Ducati:checked ~ .first{
+    margin-left: -60%;
+}
+#slide5Ducati:checked ~ .first{
+    margin-left: -80%;
+}
+
+
+
+
+/* BMW */
+
+#bmw {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;    
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+#logBmw {
+    height: 150px;
+    width: 150px;
+    margin: 17px;
+}
+
+.sliderBmw{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesBmw{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slideBmw{
+    width: 20%;
+    transition: 0.5s;
+}
+.slideBmw img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barBmw{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:25%;
+    transform: translate(-50);
+}
+
+#slide1Bmw, #slide2Bmw ,#slide3Bmw ,#slide4Bmw, #slide5Bmw {
+    display: none;
+}
+
+.barBmw{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barBmw:hover{
+    background: #FFF;
+}
+
+#slide1Bmw:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Bmw:checked ~ .first{
+    margin-left: -20%;
+}
+
+#slide3Bmw:checked ~ .first{
+    margin-left: -40%;
+}
+
+#slide4Bmw:checked ~ .first{
+    margin-left: -60%;
+}
+#slide5Bmw:checked ~ .first{
+    margin-left: -80%;
+}
+
+
+/* TRIUMPH*/
+#triumph {
+    display:flex;
+    align-items: center;
+    justify-content:space-around;    
+    padding: 15px;
+    margin: 15px;         
+    background-color: rgba(131, 125, 125, 0.8);  
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 10px;
+}
+
+#logTriumph {
+    height: 160px;
+    width: 160px;
+    margin: 17px;
+}
+
+.sliderTriumph{
+    width: 800px;
+    height: 400px;
+    overflow: hidden;  
+    position: relative;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.slidesTriumph{
+    display: flex;
+    width: 500%;
+    height: 100%;
+}
+
+.slideTriumph{
+    width: 20%;
+    transition: 0.5s;
+}
+.slideTriumph img{
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-barTriumph{
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left:25%;
+    transform: translate(-50);
+}
+
+#slide1Triumph, #slide2Triumph ,#slide3Triumph ,#slide4Triumph, #slide5Triumph {
+    display: none;
+}
+
+.barTriumph{   
+    width: 70px;
+    height: 17px;
+    border: 2px solid rgb(234, 4, 4);
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 6px;
+    transition: .4s;
+}
+.barTriumph:hover{
+    background: #FFF;
+}
+
+#slide1Triumph:checked ~ .first{
+    margin-left: 0;
+}
+
+#slide2Triumph:checked ~ .first{
+    margin-left: -20%;
+}
+
+#slide3Triumph:checked ~ .first{
+    margin-left: -40%;
+}
+
+#slide4Triumph:checked ~ .first{
+    margin-left: -60%;
+}
+#slide5Triumph:checked ~ .first{
+    margin-left: -80%;
+}
+
+
+
+
+#btnVeja {
+    padding: 5px 10px;
+    margin: 5px;
+    border: 2px solid rgb(9, 9, 9);
+    background: #903;
+    align-self: flex-end;
+    text-decoration: none;
+    color: #FFF;
+    font-family: sans-serif;
+    /* cantos arredondados */
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+
+}
+
+/* ====================================== FOOTER ========================================= */
+
+footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #e7e7e7;
+    user-select: none;
+}
+
+.top-section {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 8px 5px;
+}
+
+h3 {
+    font-size: 25px;
+    color: rgb(255, 0, 0);
+    margin-bottom: 10px;
+    border-color: black;
+}
+
+section ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+ul a {
+    text-decoration: none;
+}
+
+ul a:hover {
+    color: rgb(219, 36, 26);
+}
+
+.subscribe-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.subscribe-section form input[type=email] {
+    width: 300px;
+    height: 30px;
+    color: black;
+    text-align: center;
+    font-size: 17px;
+}
+
+.subscribe-section form input[type=email]:focus {
+    outline: 1.5px solid rgb(251, 5, 5);
+}
+
+.subscribe-section form input[type=submit] {
+    margin: 9px auto;
+    padding: 8px 20px;
+    font-size: 17px;
+    background-color: rgb(39, 39, 39);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.subscribe-section form input[type=submit]:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+hr {
+    width: 80%;
+    margin: 20px;
+    color: rgb(219, 153, 26);
+}
